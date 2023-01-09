@@ -1,0 +1,32 @@
+.card {
+    width: 350px;
+    height: fit-content;
+    margin: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.content {
+    border-top: none;
+}
+
+img {
+    width: 350px;
+    height: 150px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+}
+
+h1 {
+    font-weight: 500;
+    padding: 15px;
+    margin: 0;
+}
+
+.subtitle {
+    padding: 0px 15px 15px 15px;
+    margin: 0;
+    color: gray;
+}
