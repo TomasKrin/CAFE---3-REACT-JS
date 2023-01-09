@@ -31,6 +31,7 @@ function App() {
       <div style={{display:'flex', gap:'10px', margin:'30px'}}>
         {avatarProps.map((prop, index)=><Avatar key={index} color={prop.color} backgroundColor={prop.backgroundColor}>{prop.text}</Avatar>)}
       </div>
+      
       <div style={{width:'500px', height:'500px', backgroundColor:'#e8f4fd', display:'flex', justifyContent:'center'}}>
         {cardProps.map((prop)=><Card url={prop.url} title={prop.title} subtitle={prop.subtitle}/>)}
       </div>
