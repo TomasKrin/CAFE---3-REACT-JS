@@ -1,43 +1,6 @@
+import { singleMenu, coupleMenu, familyMenu } from "./const"
+
 const MenuList = ({customerType}) => {
-    const singleMenu = [{
-            itemName:'Sumuštiniai',
-            price:3
-        },
-        {
-            itemName: 'Šaltibarščiai',
-            price:6
-        },
-        {
-            itemName: 'Cepelinai',
-            price: 8
-        }
-    ];
-     const coupleMenu = [{
-            itemName:'Spagečiai',
-            price: 7
-        },
-        {
-            itemName:'Blyneliai',
-            price:5
-        },
-        {
-            itemName:'Steikas',
-            price:15
-        }
-    ]
-    const familyMenu = [{
-        itemName:'Pica',
-        price: 11
-    },
-    {
-        itemName:'Troškinys',
-        price:9
-    },
-    {
-        itemName:'Sriuba',
-        price:3
-    }
-]
     if(customerType === 'single'){
         return ( <ol>
             { singleMenu.map((item, index)=> <li key={index}>{item.itemName} <span style={{fontWeight:'bold'}}> &#36;{item.price}</span> </li> )}
@@ -55,3 +18,57 @@ const MenuList = ({customerType}) => {
 }
 
 export default MenuList
+
+// import { singleMenu, coupleMenu, familyMenu } from "./const";
+
+
+
+// const MenuList = ({ customerType }) => {
+
+//   const getCustomerMenu = (type) => {
+
+//     if (type === "single") {
+
+//       return singleMenu;
+
+//     } else if (type === "couple") {
+
+//       return coupleMenu;
+
+//     } else {
+
+//       return familyMenu;
+
+//     }
+
+//   };
+
+
+
+//   const customerMenu = getCustomerMenu(customerType);
+
+
+
+//   return (
+
+//     <ol>
+
+//       {customerMenu.map((menuItem) => (
+
+//         <li key={menuItem.itemName}>
+
+//           {menuItem.itemName} <strong>${menuItem.price}</strong>
+
+//         </li>
+
+//       ))}
+
+//     </ol>
+
+//   );
+
+// };
+
+
+
+// export default MenuList;
