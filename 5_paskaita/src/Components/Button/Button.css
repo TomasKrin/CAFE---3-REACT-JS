@@ -1,0 +1,35 @@
+.buttonContainer {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.amount {
+    display: flex;
+}
+
+.quantity {
+    width: 30px;
+    height: 28px;
+    /* text-align: center; */
+    border: 1px solid lightgray;
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantityBtn {
+    height: 30px;
+    cursor: pointer;
+}
+
+.cartBtn {
+    padding: 5px 35px;
+    color: white;
+    background-color: #519ac5;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
