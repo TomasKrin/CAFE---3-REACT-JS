@@ -19,6 +19,7 @@ export const NavItemList = styled.ul`
 export const NavItem = styled.li`
   color: #fb8016;
   cursor: pointer;
+  text-decoration: none;
 `;
 
 export const Logo = styled.img`
@@ -36,4 +37,5 @@ export const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 `;

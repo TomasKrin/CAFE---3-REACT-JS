@@ -1,10 +1,10 @@
 import { ButtonContained, ButtonOutlined } from "./StyledButton";
 
-const CustomButton = ({ variant, children }) => {
+const CustomButton = ({ variant, children, onClick }) => {
   if (variant === "outlined") {
-    return <ButtonOutlined>{children}</ButtonOutlined>;
+    return <ButtonOutlined onClick={onClick}>{children}</ButtonOutlined>;
   } else {
-    return <ButtonContained>{children}</ButtonContained>;
+    return <ButtonContained onClick={onClick}>{children}</ButtonContained>;
   }
 };
 

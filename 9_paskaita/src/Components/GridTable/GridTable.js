@@ -5,12 +5,13 @@ const GridTable = ({ arr }) => {
   return (
     <div>
       <Table>
-        {arr.map((item, index) => (
+        {arr.map((item) => (
           <GridItem
             key={item.id}
             name={item.name}
             date={item.dob}
             email={item.client_email}
+            id={item.id}
           />
         ))}
       </Table>

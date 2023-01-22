@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ButtonOutlined = styled.button`
   text-transform: uppercase;
+  height: 35px;
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
@@ -18,6 +19,7 @@ export const ButtonOutlined = styled.button`
 
 export const ButtonContained = styled.button`
   text-transform: uppercase;
+  height: 35px;
   border: none;
   padding: 8px 16px;
   border-radius: 4px;

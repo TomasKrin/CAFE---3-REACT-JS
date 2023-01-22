@@ -1,4 +1,5 @@
 import logo from "../TopBar/logo.png";
+import { Link } from "react-router-dom";
 import {
   Logo,
   LogoContainer,
@@ -7,16 +8,19 @@ import {
   NavItem,
   NavItemList,
 } from "./StyledTopBar";
+import { MainPageRoute } from "../../Routes/routes";
 
 const TopBar = () => {
   return (
     <Nav>
-      <LogoContainer>
+      <LogoContainer as={Link} to={MainPageRoute}>
         <Logo src={logo} alt="Vet Bee Logo" />
         <LogoText>vetbee</LogoText>
       </LogoContainer>
       <NavItemList>
-        <NavItem>Pets</NavItem>
+        <NavItem as={Link} to={MainPageRoute}>
+          Pets
+        </NavItem>
         <NavItem>Medications</NavItem>
       </NavItemList>
     </Nav>

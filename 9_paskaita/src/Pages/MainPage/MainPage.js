@@ -2,7 +2,16 @@ import GridTable from "../../Components/GridTable/GridTable";
 import TopBar from "../../Components/TopBar/TopBar";
 import { useEffect, useState } from "react";
 import { PetsAPI } from "../../Conts/conts";
-import { H1, MainPageContainer } from "./StyledMainPage";
+import {
+  H1,
+  Header,
+  MainPageContentContainer,
+  PageContainer,
+} from "./StyledMainPage";
+import Footer from "../../Components/Footer/Footer";
+import CustomButton from "../../Components/CustomButton/CustomButton";
+import { useNavigate } from "react-router-dom";
+import { AddNewPetRoute } from "../../Routes/routes";
 
 const MainPage = () => {
   const [pets, setPets] = useState(undefined);
@@ -15,15 +24,27 @@ const MainPage = () => {
       .catch((error) => console.error(error));
   }, []);
 
+  const navigate = useNavigate();
   console.log("state", pets);
   return (
-    <div>
+    <PageContainer>
       <TopBar />
-      <MainPageContainer>
-        <H1>Pet List</H1>
+      <MainPageContentContainer>
+        <Header>
+          <H1>Pet List</H1>
+          <CustomButton
+            variant="contained"
+            onClick={() => {
+              navigate(AddNewPetRoute);
+            }}
+          >
+            Add Pet
+          </CustomButton>
+        </Header>
         {pets && <GridTable arr={pets} />}
-      </MainPageContainer>
-    </div>
+      </MainPageContentContainer>
+      <Footer />
+    </PageContainer>
   );
 };
 

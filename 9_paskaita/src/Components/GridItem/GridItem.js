@@ -1,7 +1,19 @@
 import CustomButton from "../CustomButton/CustomButton";
 import { Email, H2, ItemContainer, BtnContainer } from "./StyledItem";
+import { PetsAPI } from "../../Conts/conts";
 
-const GridItem = ({ name, date, email }) => {
+const GridItem = ({ name, date, email, id }) => {
+  const handleDelete = (ItemId) => {
+    fetch(`${PetsAPI}/${ItemId}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => window.location.reload(false))
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
   return (
     <ItemContainer>
       <H2>{name}</H2>
@@ -9,7 +21,9 @@ const GridItem = ({ name, date, email }) => {
       <Email>{email}</Email>
       <BtnContainer>
         <CustomButton variant="contained">View Log</CustomButton>
-        <CustomButton variant="outlined">Delete</CustomButton>
+        <CustomButton variant="outlined" onClick={() => handleDelete(id)}>
+          Delete
+        </CustomButton>
       </BtnContainer>
     </ItemContainer>
   );
