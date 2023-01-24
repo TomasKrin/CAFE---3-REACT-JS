@@ -16,7 +16,12 @@ import { AddNewPetRoute } from "../../Routes/routes";
 const MainPage = () => {
   const [pets, setPets] = useState(undefined);
   useEffect(() => {
-    fetch(PetsAPI)
+    fetch(PetsAPI, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((resp) => resp.json())
       .then((response) => {
         setPets(response);
@@ -41,7 +46,7 @@ const MainPage = () => {
             Add Pet
           </CustomButton>
         </Header>
-        {pets && <GridTable arr={pets} />}
+        {pets && <GridTable arr={pets} type={"pet"} />}
       </MainPageContentContainer>
       <Footer />
     </PageContainer>

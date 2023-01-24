@@ -1,8 +1,10 @@
 import CustomButton from "../CustomButton/CustomButton";
 import { Email, H2, ItemContainer, BtnContainer } from "./StyledItem";
 import { PetsAPI } from "../../Conts/conts";
+import { useNavigate } from "react-router-dom";
 
 const GridItem = ({ name, date, email, id }) => {
+  const navigate = useNavigate();
   const handleDelete = (ItemId) => {
     fetch(`${PetsAPI}/${ItemId}`, {
       method: "DELETE",
@@ -20,7 +22,12 @@ const GridItem = ({ name, date, email, id }) => {
       <p>{new Date(date).toLocaleDateString("lt")}</p>
       <Email>{email}</Email>
       <BtnContainer>
-        <CustomButton variant="contained">View Log</CustomButton>
+        <CustomButton
+          variant="contained"
+          onClick={() => navigate(`/logs/${name}/${id}`)}
+        >
+          View Log
+        </CustomButton>
         <CustomButton variant="outlined" onClick={() => handleDelete(id)}>
           Delete
         </CustomButton>
