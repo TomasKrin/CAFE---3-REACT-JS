@@ -9,7 +9,7 @@ const ThemeProvider = ({ children }) => {
     setDarkMode((prevDarkMode) => !prevDarkMode);
     // serDarkMode(!darkMode);
   };
-  // {darkMode: darkMode, toggleDarkMode: toggleDarkMode}
+  // {darkMode: darkMode, toggleDarkMode: toggleDarkModee}
 
   return (
     <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
