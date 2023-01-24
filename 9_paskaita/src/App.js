@@ -2,8 +2,9 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./Pages/MainPage/MainPage";
 import AddPetPage from "./Pages/AddPetPage/AddPetPage";
-import { MainPageRoute, AddNewPetRoute } from "./Routes/routes";
+
 import PetsLogPage from "./Pages/PetsLogPage/PetsLogPage";
+import { AddNewPetRoute, MainPageRoute } from "./Conts/routes";
 
 function App() {
   return (

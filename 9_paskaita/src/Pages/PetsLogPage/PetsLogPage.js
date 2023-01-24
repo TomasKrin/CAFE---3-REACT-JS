@@ -10,8 +10,9 @@ import {
 } from "./StyledPetsLogPage";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { LogsAPI, MedsAPI } from "../../Conts/conts";
+
 import LogsPageTable from "../../Components/LogsPageTable/LogsPageTable";
+import { LogsAPI, MedsAPI } from "../../Conts/apis";
 
 const PetsLogPage = () => {
   const { name, id } = useParams();

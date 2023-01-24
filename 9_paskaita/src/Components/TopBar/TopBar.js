@@ -8,7 +8,7 @@ import {
   NavItem,
   NavItemList,
 } from "./StyledTopBar";
-import { MainPageRoute } from "../../Routes/routes";
+import { MainPageRoute } from "../../Conts/routes";
 
 const TopBar = () => {
   return (

@@ -1,7 +1,7 @@
 import GridTable from "../../Components/GridTable/GridTable";
 import TopBar from "../../Components/TopBar/TopBar";
 import { useEffect, useState } from "react";
-import { PetsAPI } from "../../Conts/conts";
+import { PetsAPI } from "../../Conts/apis";
 import {
   H1,
   Header,
@@ -11,7 +11,7 @@ import {
 import Footer from "../../Components/Footer/Footer";
 import CustomButton from "../../Components/CustomButton/CustomButton";
 import { useNavigate } from "react-router-dom";
-import { AddNewPetRoute } from "../../Routes/routes";
+import { AddNewPetRoute } from "../../Conts/routes";
 
 const MainPage = () => {
   const [pets, setPets] = useState(undefined);

@@ -3,8 +3,8 @@ import TopBar from "../../Components/TopBar/TopBar";
 import { Form, Input, Label, PageContainer, Row, H1 } from "./StyledAddPetPage";
 import CustomButton from "../../Components/CustomButton/CustomButton";
 import { useEffect, useState } from "react";
-import { PetsAPI } from "../../Conts/conts";
-import { MainPageRoute } from "../../Routes/routes";
+import { PetsAPI } from "../../Conts/apis";
+import { MainPageRoute } from "../../Conts/routes";
 import { useNavigate } from "react-router-dom";
 
 const AddPetPage = () => {
