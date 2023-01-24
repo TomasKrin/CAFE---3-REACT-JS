@@ -4,12 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { DonationProvider } from "./Contexts/DonationContext";
+import { ModalProvider } from "./Contexts/ModalContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <DonationProvider>
+        <ModalProvider>
+          <App />
+        </ModalProvider>
+      </DonationProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
