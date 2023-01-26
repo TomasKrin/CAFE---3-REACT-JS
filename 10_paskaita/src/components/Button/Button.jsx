@@ -26,12 +26,12 @@ const SecondaryButton = styled.button`
   }
 `;
 
-const Button = ({ children, type }) => {
+const Button = ({ children, type, onClick }) => {
   if (type === `primary`) {
-    return <PrimaryButton>{children}</PrimaryButton>;
+    return <PrimaryButton onClick={onClick}>{children}</PrimaryButton>;
   }
   if (type === `secondary`) {
-    return <SecondaryButton>{children}</SecondaryButton>;
+    return <SecondaryButton onClick={onClick}>{children}</SecondaryButton>;
   }
 };
 
