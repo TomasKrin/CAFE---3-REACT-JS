@@ -1,6 +1,14 @@
+import { useEffect } from "react";
 import Alert from "./components/Alert/Alert";
 
 const App = () => {
+  useEffect(() => {
+    fetch("https://lofi-terminal-default-rtdb.firebaseio.com/songs.json")
+      .then((response) => response.json())
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err));
+  });
+
   return (
     <div
       style={{
