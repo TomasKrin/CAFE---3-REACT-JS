@@ -4,7 +4,6 @@ export const getFullName = (firstName: string, lastName: string): string => {
 
 // parasyti funkcija kuri pavers stringa i * kieki  e.g. tomas => *****
 
-export const convertPassword = (name: string): string => {
-  const asterisks = "*".repeat(name.length);
-  return asterisks;
+export const convertPasswordToAsterisks = (password: string): string => {
+  return "*".repeat(password.length);
 };
