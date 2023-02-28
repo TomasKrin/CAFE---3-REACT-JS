@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { User } from "../../types/apis";
-import { convertPassword, getFullName } from "../../utils/string";
+import { User } from "../../types/user";
+import { convertPasswordToAsterisks, getFullName } from "../../utils/string";
 
 interface UserCardProps {
   user: User;
@@ -11,7 +11,7 @@ const UserCard = ({ user }: UserCardProps) => {
     <Container>
       <Email>{user.email}</Email>
       <p>{getFullName(user.first_name, user.last_name)}</p>
-      <p>{convertPassword(user.password)}</p>
+      <p>{convertPasswordToAsterisks(user.password)}</p>
     </Container>
   );
 };
