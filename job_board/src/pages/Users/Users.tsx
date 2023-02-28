@@ -1,7 +1,6 @@
 import { useUsers } from "../../hooks/user";
 import styled from "styled-components";
 import UserCard from "./UserCard";
-import { User } from "../../types/apis";
 
 const Users = () => {
   const { data } = useUsers();
@@ -11,7 +10,7 @@ const Users = () => {
 
   return (
     <Container>
-      {users.map((user: User) => (
+      {users.map((user) => (
         <UserCard key={user.id} user={user} />
       ))}
     </Container>
