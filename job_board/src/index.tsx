@@ -6,17 +6,22 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import Modal from "react-modal";
+import { ModalProvider } from "./context/ModalContext";
+
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 
 const queryClient = new QueryClient();
 Modal.setAppElement("#root");
-
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <App />
+        <ModalProvider>
+          <App />
+        </ModalProvider>
       </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>

@@ -1,13 +1,11 @@
 import { EntityMeta } from "./entity";
 
-export interface NewUser {
-  first_name: string;
-  last_name: string;
+export type NewUser = {
   email: string;
   password: string;
-}
-
-// export type NewUser = Omit<User, "id" | "createdAt" | "updatedAt">;
+  first_name: string;
+  last_name: string;
+};
 
 export type User = NewUser & EntityMeta;
 

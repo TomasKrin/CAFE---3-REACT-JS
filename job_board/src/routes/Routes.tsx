@@ -1,11 +1,10 @@
 import { Routes as RoutesWrapper, Route } from "react-router-dom";
-import { RouteTypes } from "../types/routes";
-import { routes } from "./consts";
+import { routes } from "./const";
 
 const Routes = () => {
   return (
     <RoutesWrapper>
-      {routes.map(({ path, Component }: RouteTypes) => (
+      {routes.map(({ path, Component }) => (
         <Route key={path} path={path} element={<Component />} />
       ))}
     </RoutesWrapper>
