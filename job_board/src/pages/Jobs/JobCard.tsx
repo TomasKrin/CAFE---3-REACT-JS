@@ -27,8 +27,8 @@ const JobCard = ({ job }: JobCardProps) => {
         </Title>
         <Details>
           <p>
-            Driver's license required:{" "}
-            {job.has_drivers_license ? <span>yes</span> : <span>no</span>}
+            Driver's license required:
+            <span>{job.has_drivers_license ? "yes" : "no"}</span>
           </p>
           <p>
             Starting from: <span>{formatDate(job.starting_from)}</span>
@@ -38,7 +38,7 @@ const JobCard = ({ job }: JobCardProps) => {
       </MiddleWrapper>
       <RightWrapper>
         <Price>€{job.price}</Price>
-        <Button title="apply" />
+        <Button title="apply" onClick={() => null} />
       </RightWrapper>
     </Container>
   );

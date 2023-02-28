@@ -1,10 +1,5 @@
 import styled from "styled-components";
-import {
-  darkGrey,
-  lightGrey,
-  mainBgColor,
-  smallBorderRadius,
-} from "../../const/styles";
+import { darkGrey, lightGrey, mainBgColor, smallBorderRadius } from "../../const/styles";
 
 const Input = (props: any) => {
   return <StyledInput {...props} />;

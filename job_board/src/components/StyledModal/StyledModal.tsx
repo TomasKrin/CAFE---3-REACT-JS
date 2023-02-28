@@ -4,37 +4,43 @@ import Modal from "react-modal";
 import { useContext } from "react";
 import { ModalContext } from "../../context/ModalContext";
 import * as Yup from "yup";
-import {
-  borderRadius,
-  darkGrey,
-  mainBgColor,
-  mediumGrey,
-} from "../../const/styles";
+import { borderRadius, darkGrey, mainBgColor, mediumGrey } from "../../const/styles";
 import Button from "../Button/Button";
 import Emoji from "../Emoji/Emoji";
 import FormikInput from "../Input/FormikInput";
 import { createJob } from "../../api/jobsApi";
-import { NewJob } from "../../types/job";
+import { JobType, NewJob } from "../../types/job";
 import { requiredField } from "../../const/validations";
 import FormikSelect from "../Input/FormikSelect";
 
-const validationSchema = Yup.object().shape({
+const initialValue: NewJob = {
+  title: "",
+  price: "",
+  type: "fullTime",
+  starting_from: "",
+  has_drivers_license: false,
+  user_id: 4,
+  description: "",
+};
+
+const validationSchema: Yup.ObjectSchema<NewJob> = Yup.object().shape({
   title: Yup.string().required(requiredField),
   price: Yup.number().required(requiredField),
   description: Yup.string().required(requiredField),
-  type: Yup.string().required(requiredField),
+  type: Yup.mixed<JobType>().oneOf(["fullTime", "partTime", "freelance"]).required(requiredField),
   starting_from: Yup.string().required(requiredField),
   has_drivers_license: Yup.boolean().required(requiredField),
+  user_id: Yup.number().required(),
 });
 
 const StyledModal = () => {
-  const { closeModal, modalIsOpen, setIsOpen } = useContext(ModalContext);
+  const { modalIsOpen, closeModal } = useContext(ModalContext);
 
   const handleSubmit = (values: NewJob) => {
     console.log(values);
     createJob(values)
       .then((response) => {
-        setIsOpen(false);
+        closeModal();
       })
       .catch((error) => {
         console.error("Failed to post the ad");
@@ -44,19 +50,11 @@ const StyledModal = () => {
   return (
     <Container isOpen={modalIsOpen} onRequestClose={closeModal}>
       <Formik
-        initialValues={{
-          title: "",
-          price: null,
-          type: "fullTime",
-          starting_from: "",
-          has_drivers_license: false,
-          user_id: 0,
-          description: "",
-        }}
+        initialValues={initialValue}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
-        {({ values, errors, isSubmitting }) => (
+        {({ submitForm }) => (
           <StyledForm>
             <Title>
               Create a job ad <Emoji symbol="✍" />
@@ -66,11 +64,7 @@ const StyledModal = () => {
                 <FormikInput type="text" name="title" placeholder="Job title" />
               </InputRowItem>
               <InputRowItem>
-                <FormikInput
-                  type="number"
-                  name="price"
-                  placeholder="Pay offered"
-                />
+                <FormikInput type="number" name="price" placeholder="Pay offered" />
               </InputRowItem>
             </InputRow>
             <FormikSelect
@@ -81,14 +75,10 @@ const StyledModal = () => {
                 { value: "freelance", label: "Freelance" },
               ]}
             />
-            <FormikInput
-              type="text"
-              name="description"
-              placeholder="Job description"
-            />
+            <FormikInput type="text" name="description" placeholder="Job description" />
             <ButtonsContainer>
               <Button greyVariant={true} onClick={closeModal} title="close" />
-              <Button type="submit" title="save" />
+              <Button type="submit" title="save" onClick={submitForm} />
             </ButtonsContainer>
           </StyledForm>
         )}

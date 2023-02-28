@@ -1,9 +1,11 @@
 import { Field, ErrorMessage } from "formik";
 import Input from "./Input";
+import { InputHTMLAttributes } from "react";
 
 type Props = {
   name: string;
-  [x: string]: any;
+  type?: InputHTMLAttributes<HTMLInputElement>["type"];
+  placeholder?: InputHTMLAttributes<HTMLInputElement>["placeholder"];
 };
 
 const FormikInput = ({ name, ...restProps }: Props) => {
